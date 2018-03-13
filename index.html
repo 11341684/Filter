@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!--最高文档模式-->
+    <meta name="renderer" content="webkit" /><!--webkit内核渲染-->
+    <title>二进制结合按位运算符在实际项目中的应用</title>
+    <style>
+        html,body{height: 100%;width: 100%;overflow: hidden}
+        body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+        body{font:14px "微软雅黑","宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%}
+        a{text-decoration:none}
+        a:hover{text-decoration:underline}
+        em{font-style:normal}
+        li{list-style:none}
+        input,button{outline: none}
+        /*select,input[type=button]{-webkit-box-sizing:content-box;-moz-box-sizing: content-box;box-sizing: content-box;}*/
+        input[type=checkbox],input[type=radio]{border: none;background-color: transparent}
+        input[type=file]{text-align: center}
+        select[disabled]{background-color: #eee}
+        img{border:0;vertical-align:middle}
+        table{border-spacing:0}
+        th{text-align: left}
+        p{word-wrap:break-word}
+        .left-wrap{width: 600px;margin: 15px auto}
+        .left-wrap table{width: 100%}
+        .left-wrap table td,.left-wrap table th{border:1px solid #eee;text-align: center;padding:0 12px;line-height: 25px}
+        .left-wrap table td.active{background-color: #ffb100}
+        .controll-wrap{padding: 20px;text-align: center}
+        .controll-wrap select{width: 100px}
+        .tip{text-align: center;line-height: 25px}
+        .tip .res{border-top: 1px solid #000;padding: 0 15px;text-align: right}
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="left-wrap">
+        <table>
+            <tr>
+                <th v-for="x in head">{{x.text}}</th>
+            </tr>
+            <tr v-for="(x,index) in body">
+                <td :class="result[index]==='1'?'active':''" v-for="y in head">{{x[y.key]}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="tip">
+        <div v-for="x in resultOfTwo">{{x}}</div>
+        <div><span class="res">={{result}}</span><span style="opacity: 0">=</span></div>
+    </div>
+    <div class="controll-wrap">
+        <select v-model="search.sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+        </select>
+        <select v-model="search.age">
+            <option value="16">16</option>
+            <option value="17">17</option>
+        </select>
+        <select v-model="search.weight">
+            <option value="55">55</option>
+            <option value="60">60</option>
+        </select>
+        <select v-model="search.height">
+            <option value="165">165</option>
+            <option value="170">170</option>
+        </select>
+    </div>
+</div>
+<script src="js/vue.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
